@@ -7,7 +7,7 @@ export default function CustomCard(props) {
     <Shadow
       distance={5}
       startColor={"#00000010"}
-      containerViewStyle={{ marginVertical: 20, width: "100%" }}
+      containerViewStyle={{ marginTop: props.marginTop? props.marginTop : 20, width: "100%" }}
       radius={8}
     >
       <View style={[styles.card, styles.shadowProp]}>

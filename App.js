@@ -4,6 +4,7 @@ import { Header } from "react-native-elements";
 import CustomCard from "./components/CustomCard";
 import { Shadow } from "react-native-shadow-2";
 import { useState } from "react";
+import BillingDetails from "./components/BillingDetails";
 
 export default function App() {
   const [invoiceType, setInvoiceType] = useState("Invoice");
@@ -25,10 +26,11 @@ export default function App() {
             style: { flex: 1, color: "#c41e60", fontSize: 20 },
           }}
         />
-        </Shadow>
+      </Shadow>
 
-        {/* Body */}
-        <InvoiceDetails />
+      {/* Body */}
+      <InvoiceDetails />
+      <BillingDetails />
     </ScrollView>
   );
 }

@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
 import { CheckBox, Input } from "react-native-elements";
-import CustomCard from "./CustomCard";
+import CustomCard from "../CustomCard";
 import { useState } from "react";
 import { Linking } from "react-native";
 import DatePicker from "./DatePicker";
@@ -9,7 +9,7 @@ export default function InvoiceDetails() {
   const [checked, setChecked] = useState("Invoice");
   return (
     <CustomCard>
-      <View style={{ flexDirection: "row" }}>
+      <View style={{ flexDirection: "row"}}>
         <CheckBox
           title={<Text style={{ fontSize: 16 }}>&nbsp;Invoice</Text>}
           checkedIcon="check-circle"
@@ -51,13 +51,28 @@ export default function InvoiceDetails() {
           what's the difference?
         </Text>
       </View>
-      <View style={{flexDirection: 'row', marginTop: 20, paddingHorizontal: 10}}>
-          <View style={{flex: 1}}>
-          <DatePicker/>
-          </View>
-          <View style={{flex: 1}}>
-          <Input label={'Doctor\'s name'} labelStyle={{color: 'black', fontWeight: 'normal', fontSize: 18}} />
-          </View>
+      <View
+        style={{ flexDirection: "row", marginTop: 20, marginBottom: 0, paddingHorizontal: 10 }}
+      >
+        <View style={{ flex: 1 }}>
+          <DatePicker />
+        </View>
+        <View style={{ flex: 1 }}>
+          <Input
+            inputContainerStyle={{ borderBottomWidth: 0, marginBottom: 0 }}
+            inputStyle={{
+              borderColor: "rgba(0,0,0,0.2)",
+              borderWidth: 1,
+              borderRadius: 5,
+              paddingHorizontal: 10,
+              paddingVertical: 4,
+            }}
+            label={"Doctor's name"}
+            placeholder="Dr."
+            rightIcon={"white"}
+            labelStyle={{ color: "black", fontWeight: "normal", fontSize: 18 }}
+          />
+        </View>
       </View>
     </CustomCard>
   );
