@@ -1,7 +1,8 @@
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, View } from "react-native";
 import InvoiceDetails from "./components/InvoiceDetails";
 import { Header } from "react-native-elements";
 import CustomCard from "./components/CustomCard";
+import UploadRXSection from "./components/UploadRXSection";
 import { Shadow } from "react-native-shadow-2";
 import { useState } from "react";
 import BillingDetails from "./components/BillingDetails";
@@ -31,6 +32,7 @@ export default function App() {
       {/* Body */}
       <InvoiceDetails />
       <BillingDetails />
+      <UploadRXSection />
     </ScrollView>
   );
 }
