@@ -4,8 +4,8 @@ import CustomCard from "../CustomCard";
 
 export default function BillingDetails() {
   return (
-    <CustomCard>
-      <View style={{ paddingHorizontal: 20 }}>
+    <CustomCard marginBottom={0}>
+      <View style={{ paddingHorizontal: 20, marginBottom: 0, paddingBottom: 0 }}>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <Text style={{ fontSize: 16 }}>Billing To*</Text>
           <Text style={{ fontSize: 16, color: "#c41e60" }}>Change</Text>
@@ -29,10 +29,10 @@ export default function BillingDetails() {
             marginTop: 0,
           }}
         >
-          <Text style={{ fontSize: 14, color: "rgba(0,0,0,0.2)" }}>
+          <Text style={{ fontSize: 14, color: "rgba(0,0,0,0.4)" }}>
             Kushal Kharbanda
           </Text>
-          <Text style={{ fontSize: 14, color: "rgba(0,0,0,0.2)" }}>
+          <Text style={{ fontSize: 14, color: "rgba(0,0,0,0.4)" }}>
             You'll receive
           </Text>
         </View>
@@ -51,12 +51,12 @@ export default function BillingDetails() {
               borderWidth: 1,
               borderRightWidth: 0,
               flex: 1,
-              borderColor: "rgba(0,0,0,0.2)",
+              borderColor: "rgba(0,0,0,0.4)",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <Text style={{ color: "rgba(0,0,0,0.2)", fontSize: 14 }}>
+            <Text style={{ color: "rgba(0,0,0,0.4)", fontSize: 14 }}>
               Importance
             </Text>
             <Text style={{ color: "black", fontSize: 24, fontWeight: "600" }}>
@@ -71,12 +71,12 @@ export default function BillingDetails() {
               borderWidth: 1,
               borderRightWidth: 0,
               flex: 1,
-              borderColor: "rgba(0,0,0,0.2)",
+              borderColor: "rgba(0,0,0,0.4)",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <Text style={{ color: "rgba(0,0,0,0.2)", fontSize: 14 }}>
+            <Text style={{ color: "rgba(0,0,0,0.4)", fontSize: 14 }}>
               Avg Order Value
             </Text>
             <Text style={{ color: "black", fontSize: 24, fontWeight: "600" }}>
@@ -91,12 +91,12 @@ export default function BillingDetails() {
               borderWidth: 1,
               borderRightWidth: 0,
               flex: 1,
-              borderColor: "rgba(0,0,0,0.2)",
+              borderColor: "rgba(0,0,0,0.4)",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <Text style={{ color: "rgba(0,0,0,0.2)", fontSize: 14 }}>
+            <Text style={{ color: "rgba(0,0,0,0.4)", fontSize: 14 }}>
               Avg Revisit in
             </Text>
             <Text style={{ color: "black", fontSize: 24, fontWeight: "600" }}>

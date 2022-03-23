@@ -1,14 +1,12 @@
-import { StyleSheet, ScrollView, View } from "react-native";
+import { ScrollView } from "react-native";
 import InvoiceDetails from "./components/InvoiceDetails";
 import { Header } from "react-native-elements";
-import CustomCard from "./components/CustomCard";
 import UploadRXSection from "./components/UploadRXSection";
 import { Shadow } from "react-native-shadow-2";
-import { useState } from "react";
 import BillingDetails from "./components/BillingDetails";
+import ProductsDetails from "./components/ProductsDetails";
 
 export default function App() {
-  const [invoiceType, setInvoiceType] = useState("Invoice");
   return (
     <ScrollView stickyHeaderIndices={[1]} showsVerticalScrollIndicator={false}>
       {/* Header Component */}
@@ -33,15 +31,7 @@ export default function App() {
       <InvoiceDetails />
       <BillingDetails />
       <UploadRXSection />
+      <ProductsDetails />
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
