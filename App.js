@@ -1,13 +1,64 @@
-import { ScrollView } from "react-native";
+import { ScrollView, View } from "react-native";
 import InvoiceDetails from "./components/InvoiceDetails";
-import { Header } from "react-native-elements";
+import { Header, Button} from "react-native-elements";
 import UploadRXSection from "./components/UploadRXSection";
 import { Shadow } from "react-native-shadow-2";
 import BillingDetails from "./components/BillingDetails";
 import ProductsDetails from "./components/ProductsDetails";
 import FinalPricing from "./components/FinalPricing";
+import { useEffect, useState } from "react";
+import { StyleSheet, BackHandler } from "react-native";
+import { BarCodeScanner } from "expo-barcode-scanner";
 
 export default function App() {
+  const [hasPermission, setHasPermission] = useState(null);
+  const [scanned, setScanned] = useState(false);
+  const [clicked, setClicked] = useState(false);
+  const [showScanner, setShowScanner] = useState(false);
+
+  useEffect(() => {
+    const backAction = () => {
+      setShowScanner(false);
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
+
+    return () => backHandler.remove();
+  }, []);
+
+  useEffect(() => {
+    if (clicked === true) {
+      if (hasPermission) {
+        setShowScanner(true);
+      }
+      setClicked(false)
+    }
+  }, [clicked]);
+
+  const handleBarCodeScanned = ({ type, data }) => {
+    setScanned(true);
+    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+  };
+
+  if (showScanner) {
+    return (
+      <View style={styles.container}>
+        <BarCodeScanner
+          onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+          style={StyleSheet.absoluteFillObject}
+        />
+        {scanned && (
+          <Button
+            title={"Tap to Scan Again"}
+            onPress={() => setScanned(false)}
+          />
+        )}
+      </View>
+    );
+  }
   return (
     <>
       {/* Header Component */}
@@ -33,9 +84,21 @@ export default function App() {
         <InvoiceDetails />
         <BillingDetails />
         <UploadRXSection />
-        <ProductsDetails />
-        <FinalPricing/>
+        <ProductsDetails
+          setClicked={setClicked}
+          setHasPermission={setHasPermission}
+          hasPermission={hasPermission}
+        />
+        <FinalPricing />
       </ScrollView>
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});

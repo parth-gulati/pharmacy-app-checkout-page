@@ -2,7 +2,8 @@ import { View } from "react-native";
 import CustomCard from "../CustomCard";
 import { Button, Icon, Text, Card } from "react-native-elements";
 import SingleProduct from "./SingleProduct";
-import { color } from "react-native-elements/dist/helpers";
+import { StyleSheet } from "react-native";
+import { BarCodeScanner, getPermissionsAsync } from "expo-barcode-scanner";
 
 const medicineDetails = [
   {
@@ -33,7 +34,26 @@ const medicineDetails = [
   },
 ];
 
-export default function ProductsDetails() {
+export default function ProductsDetails({setHasPermission, setClicked, hasPermission}) {
+  
+
+  getCameraPermissions = async () => {
+    const { status } = await BarCodeScanner.requestPermissionsAsync();
+    setHasPermission(status === "granted");
+  };
+
+  const handleClicked = () => {
+    console.log('clicked')
+    console.log(hasPermission)
+    setClicked(true)
+    if (hasPermission === null) {
+      getCameraPermissions();
+    }
+    if(hasPermission === false){
+      alert('Camera permissions not granted')
+    }
+  };
+
   return (
     <CustomCard>
       <View style={{ paddingHorizontal: 20, marginBottom: 20 }}>
@@ -71,6 +91,9 @@ export default function ProductsDetails() {
               buttonStyle={{ borderColor: "rgba(0,0,0,0.01)" }}
               type="outline"
               titleStyle={{ color: "#c41e60" }}
+              onPress={() => {
+                handleClicked();
+              }}
               iconPosition="right"
               raised
               title={"Scan Barcode    "}
@@ -89,3 +112,10 @@ export default function ProductsDetails() {
     </CustomCard>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+  },
+});
