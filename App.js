@@ -1,6 +1,6 @@
 import { ScrollView, View } from "react-native";
 import InvoiceDetails from "./components/InvoiceDetails";
-import { Header, Button} from "react-native-elements";
+import { Header, Button } from "react-native-elements";
 import UploadRXSection from "./components/UploadRXSection";
 import { Shadow } from "react-native-shadow-2";
 import BillingDetails from "./components/BillingDetails";
@@ -17,24 +17,11 @@ export default function App() {
   const [showScanner, setShowScanner] = useState(false);
 
   useEffect(() => {
-    const backAction = () => {
-      setShowScanner(false);
-    };
-
-    const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      backAction
-    );
-
-    return () => backHandler.remove();
-  }, []);
-
-  useEffect(() => {
     if (clicked === true) {
       if (hasPermission) {
         setShowScanner(true);
       }
-      setClicked(false)
+      setClicked(false);
     }
   }, [clicked]);
 
@@ -51,10 +38,21 @@ export default function App() {
           style={StyleSheet.absoluteFillObject}
         />
         {scanned && (
-          <Button
-            title={"Tap to Scan Again"}
-            onPress={() => setScanned(false)}
-          />
+          <>
+            <Button
+              title={"Tap to Scan Again"}
+              onPress={() => setScanned(false)}
+            />
+            <Button
+              buttonStyle={{ marginTop: 30, backgroundColor: "red" }}
+              title={"Go Back"}
+              onPress={() => {
+                setScanned(false);
+                setShowScanner(false);
+                setScanned(false);
+              }}
+            />
+          </>
         )}
       </View>
     );
