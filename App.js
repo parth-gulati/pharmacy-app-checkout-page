@@ -5,6 +5,7 @@ import UploadRXSection from "./components/UploadRXSection";
 import { Shadow } from "react-native-shadow-2";
 import BillingDetails from "./components/BillingDetails";
 import ProductsDetails from "./components/ProductsDetails";
+import FinalPricing from "./components/FinalPricing";
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
         <BillingDetails />
         <UploadRXSection />
         <ProductsDetails />
+        <FinalPricing/>
       </ScrollView>
     </>
   );

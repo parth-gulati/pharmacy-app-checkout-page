@@ -73,7 +73,7 @@ export default function ProductsDetails() {
               titleStyle={{ color: "#c41e60" }}
               iconPosition="right"
               raised
-              title={"Search to Add    "}
+              title={"Scan Barcode    "}
               icon={
                 <Icon name="angle-right" type="font-awesome" color="#c41e60" />
               }
@@ -86,7 +86,6 @@ export default function ProductsDetails() {
       {medicineDetails.map((ele) => (
         <SingleProduct key={ele.name} {...ele} />
       ))}
-      <CustomCard />
     </CustomCard>
   );
 }
