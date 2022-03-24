@@ -8,11 +8,11 @@ import ProductsDetails from "./components/ProductsDetails";
 
 export default function App() {
   return (
-    <ScrollView stickyHeaderIndices={[1]} showsVerticalScrollIndicator={false}>
+    <>
       {/* Header Component */}
       <Shadow distance={5} startColor={"#00000010"} radius={8}>
         <Header
-          containerStyle={{ height: 80 }}
+          containerStyle={{ height: 80, marginTop: 20 }}
           backgroundColor="white"
           placement="left"
           leftComponent={{ icon: "west", color: "#c41e60", style: { flex: 1 } }}
@@ -27,11 +27,13 @@ export default function App() {
         />
       </Shadow>
 
-      {/* Body */}
-      <InvoiceDetails />
-      <BillingDetails />
-      <UploadRXSection />
-      <ProductsDetails />
-    </ScrollView>
+      <ScrollView showsVerticalScrollIndicator={true}>
+        {/* Body */}
+        <InvoiceDetails />
+        <BillingDetails />
+        <UploadRXSection />
+        <ProductsDetails />
+      </ScrollView>
+    </>
   );
 }

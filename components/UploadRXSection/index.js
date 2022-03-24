@@ -20,6 +20,7 @@ export default function UploadRXSection() {
         <Button
           titleStyle={{ color: "#c41e60" }}
           type="clear"
+          onPress={()=>{console.log('Attach pressed')}}
           iconPosition="right"
           style={{ flex: 1, padding: 0, margin: 0 }}
           title="Upload RX&nbsp;&nbsp;"

@@ -39,7 +39,7 @@ export default function InvoiceDetails() {
         <Text
           style={{ color: "#c41e60" }}
           onPress={() => {
-            Linking.openURL("http://google.com")
+            Linking.openURL("https://www.youtube.com/watch?v=xvFZjo5PgG0")
               .then((res) => {
                 console.log(res);
               })

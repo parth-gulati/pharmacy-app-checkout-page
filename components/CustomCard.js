@@ -5,8 +5,8 @@ import { Shadow } from "react-native-shadow-2";
 export default function CustomCard(props) {
   return (
     <Shadow
-      distance={5}
-      startColor={"#00000010"}
+      distance={10}
+      startColor={"#00000015"}
       containerViewStyle={{ marginTop: props.marginTop? props.marginTop : 20, width: "100%" }}
       radius={8}
     >
